@@ -1,0 +1,23 @@
+@startuml
+class employee
+{
+    + name
+    + age
+}
+@enduml
+
+@startuml
+left to right direction
+
+title  ユースケース図を書いてみる。
+actor operator as op
+
+package "とあるエディタ" <<Rect>> {
+    (UC2.印刷する) as pr
+    op ..> (UC1.文章を入力する) : <<include>>
+    op ..> pr                   : <<include>>
+    op ..> (UC3.UMLに変換する)  : <<include>>
+    pr <.. (UC2.1 PDFに変換する)     : <<extend>>
+}
+
+@enduml
